@@ -9,7 +9,11 @@ print("VGG-16 Model is loaded..")
 
 # load input image and preprocess it for predictions
 import sys
-filename = sys.argv[1]
+if len(sys.argv) != 2:
+	print("Usage: keras-vgg16.py IMAGE")
+	exit(1)
+else:
+	filename = sys.argv[1]
 
 from keras.preprocessing import image
 input = image.load_img(filename, target_size=(224, 224))
